@@ -413,8 +413,8 @@ class Frequency_module(nn.Module):
         """
         ### Process in frequency domain
 
-        frequency = 0.1 + 0.5 * F.sigmoid(self.raw_frequency)
-        # frequency = 0.1 + 0.5 * self.raw_frequency
+        # frequency = 0.1 + 0.5 * F.sigmoid(self.raw_frequency)
+        frequency = 0.1 + 0.5 * self.raw_frequency
         # Use trainable frequency parameter to generate sine wave here
         t = torch.arange(0, 16, 1 / 125, dtype=torch.float32, device=x.device)
         t = t.unsqueeze(0).expand(x.size(0), -1)
